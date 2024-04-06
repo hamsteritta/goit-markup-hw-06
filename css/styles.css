@@ -307,6 +307,9 @@ main {
   padding-bottom: 96px;
   background: #f4f4fd;
 }
+.team .container {
+  padding: 0 28px;
+}
 .team-title {
   margin-bottom: 72px;
 }
@@ -589,7 +592,6 @@ main {
   background-color: transparent;
   padding-left: 16px;
   color: #fff;
-  margin-right: 24px;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
