@@ -47,7 +47,9 @@ img {
 main {
   flex-grow: 1;
 }
-
+.hidden {
+  display: none;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -186,7 +188,7 @@ main {
 }
 .hero {
   display: flex;
-  padding: 72px 0;
+  padding: 72px 52px;
   /* padding: 188px 0 188px;
   max-width: 1440px; */
   margin: auto;
@@ -272,8 +274,6 @@ main {
   margin-bottom: 8px;
   font-size: 36px;
   font-weight: 700;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
   text-align: center;
 }
 .features-item-text {
@@ -282,7 +282,7 @@ main {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
-  width: 100%;
+  width: 264px;
 }
 .features-icon {
 }
@@ -460,6 +460,7 @@ main {
 }
 .footer-item {
   /* margin-right: 120px; */
+  margin-bottom: 72px;
 }
 .footer-logo {
   font-family: "Raleway", sans-serif;
@@ -487,8 +488,6 @@ main {
   color: #f4f4fd;
   max-width: 288px;
   /* max-width: 264px; */
-
-  margin-bottom: 72px;
 }
 
 .footer-subtitle {
@@ -569,7 +568,7 @@ main {
 .footer-email-label {
 }
 .footer-email {
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   width: 264px;
   height: 40px;
@@ -588,7 +587,7 @@ main {
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.3);
 }
 .backdrop {
   position: fixed;
@@ -600,17 +599,11 @@ main {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 100%;
+  visibility: hidden;
 }
 
-.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
 .modal {
   width: 288px;
-  /* width: 408px; */
-  min-height: 623px;
   /* min-height: 584px; */
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
@@ -620,7 +613,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 72px 24px 24px 24px;
+  padding: 72px 16px 24px 16px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close {
@@ -686,7 +679,6 @@ main {
 
 .modal-input {
   width: 100%;
-  height: 58px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   background-color: transparent;
@@ -704,7 +696,6 @@ main {
 }
 
 .modal-input-wrap {
-  width: 100%;
   position: relative;
   margin-bottom: 8px;
 }
@@ -731,7 +722,6 @@ main {
   outline: transparent;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   resize: none;
-  margin-bottom: 16px;
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 0.4);
@@ -795,27 +785,22 @@ main {
   margin-top: 24px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop-menu {
-}
 
-.modal-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
+.mobile-menu {
+  display: flex;
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 255, 255);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 100%;
-  display: flex;
+  background: #fff;
+  padding: 72px 16px 40px 16px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   flex-direction: column;
-  padding: 72px 24px 40px 16px;
   justify-content: space-between;
   visibility: hidden;
-  /* background: #fff; */
 }
-.modal-close-menu {
+
+.menu-close {
   position: absolute;
   right: 24px;
   top: 24px;
@@ -823,7 +808,6 @@ main {
   width: 24px;
   height: 24px;
   color: #2e2f42;
-  /* background-color: #e7e9fc; */
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -833,81 +817,59 @@ main {
   justify-content: center;
   padding: 0;
 }
+.menu-close:hover,
+.menu-close:focus {
+  background-color: #404bbf;
+  fill: #fff;
+  border: none;
+}
 
-.mob-modal-menu {
+.menu-ex {
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.mob-menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.menu-close:hover .menu-ex,
+.menu-close:focus .menu-ex {
+  fill: #ffffff;
 }
-.mob-menu-item {
+.mobile-menu .header-menu-list {
+  display: block;
   font-weight: 700;
   font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
 }
-
-.mob-menu-link {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.mobile-menu .header-menu-list a {
   color: #2e2f42;
 }
-.mob-menu-link:hover,
-.mob-menu-link:focus {
-  color: #4d5ae5;
+.mobile-menu .header-menu-list a:hover,
+.mobile-menu .header-menu-list a:focus {
+  color: #404bbf;
 }
-.menu-bottom-container {
+.mobile-menu .header-menu-item {
+  margin-bottom: 40px;
 }
-.address-menu {
-  margin-bottom: 48px;
+
+.mobile-menu address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
 }
-.mob-contact-list {
+
+.mobile-menu .header-contact-list {
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.mob-contact-item {
+.mobile-menu .header-contact-link {
+  font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-}
-
-.mob-contact-link {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: #434455;
 }
-.mob-contact-link:hover,
-.mob-contact-link:focus {
+.mobile-menu .header-contact-link:hover,
+.mobile-menu .header-contact-link:focus {
   color: #4d5ae5;
-}
-.mob-link-container {
-}
-.mob-link-list {
-  display: flex;
-  justify-content: space-between;
-  /* gap: 40px; */
-  align-items: center;
-}
-.mob-link-item {
-  width: 40px;
-  height: 40px;
-}
-.mob-icon-link {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #4d5ae5;
-  border-radius: 50%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.mob-icon-link:hover,
-.mob-icon-link:focus,
-.mob-icon-link:active {
-  background-color: #31d0aa;
 }
 
 .is-open {
@@ -915,6 +877,7 @@ main {
   visibility: visible;
   pointer-events: auto;
 }
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -942,7 +905,7 @@ main {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -16px;
+    bottom: -1px;
     background-color: #404bbf;
     border-radius: 2px;
     height: 4px;
@@ -978,15 +941,13 @@ main {
   }
 
   .hero {
-    padding: 112px 0px;
+    padding: 112px 136px;
   }
   .hero-title {
     width: 498px;
     font-size: 56px;
     line-height: 1.07;
-  }
-  .features-subtitle {
-    text-align: left;
+    margin-bottom: 36px;
   }
   .features-item {
     width: calc((100% - 24px) / 2);
@@ -994,7 +955,9 @@ main {
   .features-list {
     gap: 72px 24px;
   }
-
+  .features-subtitle {
+    text-align: left;
+  }
   .team .container {
     max-width: 584px;
   }
@@ -1046,9 +1009,9 @@ main {
   }
   .modal {
     width: 408px;
-    min-height: 584px;
+    padding: 72px 24px 24px 24px;
   }
-  .modal-menu {
+  .mobile-menu {
     display: none;
   }
 }
@@ -1058,21 +1021,8 @@ main {
   .team .container {
     max-width: 1158px;
   }
-  .container {
-    padding: 0 15px;
-  }
   .header-logo {
     margin-right: 76px;
-  }
-  .current::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    background-color: #404bbf;
-    border-radius: 2px;
-    height: 4px;
-    width: 100%;
   }
   .header-contact-list {
     flex-direction: row;
@@ -1085,7 +1035,7 @@ main {
   }
 
   .hero {
-    padding: 188px 0;
+    padding: 188px 472px;
     max-width: 1440px;
   }
   .hero-title {
@@ -1095,26 +1045,24 @@ main {
   .features {
     padding: 120px 0 120px;
   }
-
   .features-list {
     gap: 0 24px;
   }
   .features-item {
     width: calc((100% - 3 * 24px) / 4);
   }
-  .features-item-box {
-    display: flex;
-  }
-
   .features-subtitle {
-    font-weight: 500;
     font-size: 20px;
-    line-height: 1.2;
+    font-weight: 500;
   }
   .features-item-text {
+    font-size: 16px;
     font-weight: 400;
   }
-
+  .features-item-box {
+    flex-direction: inherit;
+    display: flex;
+  }
   .team {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -1149,9 +1097,11 @@ main {
   .footer-item {
     margin-right: 120px;
     align-items: baseline;
+    margin-bottom: 0;
   }
   .footer-soc {
     margin-right: 80px;
+    margin-bottom: 0;
   }
   .footer-subscribe {
     margin-bottom: 0;
